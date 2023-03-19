@@ -2,6 +2,6 @@ Server:
   port: 8081
 RestApi:
   kakao:
-    host: "dapi.kakao.com"
+    host: "https://dapi.kakao.com"
     path: "/v2/search/blog"
-    key: "KakaoAK 12e793e6acf2cdd9a5212795e2eb8601"
+    key: "KakaoAK e6cf760ee93f406c3e67cce178ae9960"

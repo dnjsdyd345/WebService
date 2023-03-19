@@ -13,8 +13,10 @@ public class MainController {
     MainService mainService;
 
     @RequestMapping("/")
-    public SearchBlog test(){
+    public String test(){
         String query ="test";
-        return mainService.test(query);
+//        return mainService.test(query);
+
+        return mainService.test2(query);
     }
 }
