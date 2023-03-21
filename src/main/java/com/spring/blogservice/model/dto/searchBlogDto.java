@@ -1,7 +1,6 @@
 package com.spring.blogservice.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.google.gson.annotations.SerializedName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;

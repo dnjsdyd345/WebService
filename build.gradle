@@ -25,6 +25,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     runtimeOnly 'com.h2database:h2'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
@@ -45,11 +46,6 @@ dependencies {
     // java.lang.NoClassDefFoundError(javax.annotation.Generated) 발생 대응
     annotationProcessor "jakarta.annotation:jakarta.annotation-api"
 
-    implementation 'com.google.code.gson:gson:2.8.5'                 // Gson 사용시
-    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'     // Gson 처리시
-    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'  // String 처리시
-    implementation 'com.squareup.okhttp3:okhttp:3.14.7'                     //okhttp3
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.7'
 
     // JSON PARSE
     implementation 'org.json:json:20200518'

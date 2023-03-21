@@ -29,8 +29,6 @@ public class TbSearchBlog {
     private String regDtti;
 
     @Schema(title = "조회 수 ")
-    private BigDecimal count;
-
-
+    private long count;
 
 }

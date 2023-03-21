@@ -6,8 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface TbSearchBlogRepository extends JpaRepository<TbSearchBlog, String> {
+public interface TbSearchBlogRepository extends JpaRepository<TbSearchBlog, Long> {
     List<TbSearchBlog> findAll();
     TbSearchBlog save(TbSearchBlog tbSearchBlog);
     Optional<TbSearchBlog> findById(Long id);
+    Optional<TbSearchBlog> findByQuery(String query);
 }
