@@ -1,8 +1,10 @@
 package com.spring.blogservice;
 
-import com.sun.org.slf4j.internal.LoggerFactory;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import javax.annotation.PostConstruct;
@@ -13,7 +15,7 @@ import java.util.TimeZone;
 @SpringBootApplication
 public class BlogServiceApplication {
 
-    private final Logger logger = LoggerFactory.getLogger((this.getClass()));
+//    private final Logger logger = LoggerFactory.getLogger((this.getClass()));
 
     public static void main(String[] args) {
         SpringApplication.run(BlogServiceApplication.class, args);
