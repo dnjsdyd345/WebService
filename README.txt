@@ -1,12 +1,15 @@
-1. API 테스트 및 가시성을 위한 SWAGGER 사용
-    url:port/swagger-ui/index.html
+Gradle-version : 7.6.1
+SpringBoot-version : 2.7.10-SNAPSHOT
 
-2. 추가 repository
-    - SWAGGER
-        이유 : API 엔드포인트 테스트 및 문서화
-    - querydsl, annotationProcessor
-        이유 : 코드로 쿼리를 작성할 경우를 위해 사용 및 빌드 단계에서 에러 확인
-    - Lombok
-        이유 : dto 클래스 작성
+    * API 테스트 및 명세 확인을 위한 URL *
+    ip:port/swagger-ui/index.html (ex. localhost:8080/swagger-ui/index.html )
+
+- 추가 repository
+    - SWAGGER :
+        API 테스트 화면제공, API 명세를 위해 사용
+    - querydsl, annotationProcessor :
+        코드로 쿼리를 작성할 경우를 위해 사용 및 빌드 단계에서 에러 확인
+    - Lombok :
+        dto 클래스 작성
     - json :
-        이유 : json parsing
+        json parsing
