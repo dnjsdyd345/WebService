@@ -3,20 +3,17 @@ package com.spring.blogservice.model.entity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.math.BigDecimal;
 
 @Entity
 @Getter
 @Setter
 @Schema(name = "TbSearchBlog", title = "TbSearchBlog", description = "BLOG 검색 Request Entity")
 public class TbSearchBlog {
-
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
     @Schema(title = "ID")

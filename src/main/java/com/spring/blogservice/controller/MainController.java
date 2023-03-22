@@ -10,7 +10,6 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -40,19 +39,11 @@ public class MainController {
             }
                 )
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "조회 성공",
-                content = {
-                    @Content(
-                            mediaType = MediaType.APPLICATION_JSON_VALUE
-//                            schema = @Schema()
-                    )
-                })
+            @ApiResponse(responseCode = "200", description = "조회 성공")
     })
     public @ResponseBody searchBlogDto.SEARCH_RESPONSE getSearchBlog(
             @ModelAttribute searchBlogDto.SEARCH_CONDITION searchReq
             ){
-
-        PageRequest pageRequest = PageRequest.of(searchReq.getPage().intValue(), searchReq.getSize().intValue());
         return mainService.getSearchBlog(searchReq);
 
     }
@@ -65,13 +56,7 @@ public class MainController {
             }
     )
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "조회 성공",
-                    content = {
-                            @Content(
-                                    mediaType = MediaType.APPLICATION_JSON_VALUE
-//                            schema = @Schema()
-                            )
-                    })
+            @ApiResponse(responseCode = "200", description = "조회 성공")
     })
     public ResponseEntity<ResponseRoot> getSearchLog(
             @RequestParam(value = "page", required = false)BigDecimal page,
@@ -83,6 +68,24 @@ public class MainController {
                 Sort.by("count").descending());
         Page<TbSearchBlog> all = mainService.findAll(pageRequest);
         return ResponseBuilder.build(all, HttpStatus.OK);
+    }
 
+    @RequestMapping(value = "/deleteSearchLog/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(summary = "다음 블로그 검색어 조회 통계 로그 삭제", description = "다음 블로그 검색어 조회 통계 로그를 ID로 삭제한다.",
+            parameters = {
+                    @Parameter(name = "id", description = "DB TABLE ID"),
+            }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "삭제 성공"),
+            @ApiResponse(responseCode = "404", description = "삭제 대상을 찾을 수 없음"),
+    })
+    public ResponseEntity<ResponseRoot> getSearchLog(
+            @PathVariable("id") Long id
+    ){
+        final TbSearchBlog byId = mainService.bindById(id);
+        if(byId == null) return ResponseBuilder.build(HttpStatus.NOT_FOUND);
+        mainService.deleteByid(byId);
+        return ResponseBuilder.build(HttpStatus.NO_CONTENT);
     }
 }

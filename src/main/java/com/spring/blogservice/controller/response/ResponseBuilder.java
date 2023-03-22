@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import java.util.Collection;
 
-/** 단일 , Collection에*/
+/** 단일 , Collection에 따른 Response Entity Builder*/
 public class ResponseBuilder {
     public static ResponseEntity<ResponseRoot> build(HttpStatus status) { return new ResponseEntity<>(status); }
 
@@ -62,5 +62,4 @@ public class ResponseBuilder {
             );
         }
     }
-
 }

@@ -7,13 +7,15 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 @Schema(name = "searchBlogDto", title="searchBlog", description = "Kakao Blog 검색 API DTO")
 public class searchBlogDto {
 
     @Getter
     @Setter
+    @Schema(name = "Search Blog Api[SEARCH_CONDITION]"
+            , title="Search Blog Api[SEARCH_CONDITION]"
+            , description = "KAKAO 블로그 검색 Request DTO")
     public static class SEARCH_CONDITION {
         @Schema(title = "검색어", description = "검색어")
         private String query;
@@ -34,6 +36,9 @@ public class searchBlogDto {
     @Getter
     @Setter
     @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+    @Schema(name = "Search Blog Api[SEARCH_RESPONSE]"
+            , title="Search Blog Api[SEARCH_RESPONSE]"
+            , description = "KAKAO 블로그 검색 Response DTO")
     public static class SEARCH_RESPONSE{
         public documents[] documents;
         public meta meta;

@@ -3,10 +3,10 @@ package com.spring.blogservice.error;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+/** ERROR CODE enum*/
 @Getter
 public enum ErrorCode {
     NO_CONTENT(HttpStatus.NO_CONTENT, "NO_CONTENT", "필수값 정보가 누락 되었습니다.");
-
 
     private final HttpStatus status;
     private final String code;
