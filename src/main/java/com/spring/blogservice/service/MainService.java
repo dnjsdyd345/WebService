@@ -39,7 +39,8 @@ public class MainService {
     @Value("${RestApi.kakao.key}")
     String key;
 
-    private final TbSearchBlogRepository tbSearchBlogRepository;
+    public final TbSearchBlogRepository tbSearchBlogRepository;
+//    private final TbSearchBlogRepository tbSearchBlogRepository;
 
     @Autowired
     public MainService(TbSearchBlogRepository tbSearchBlogRepository) {
